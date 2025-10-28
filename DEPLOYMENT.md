@@ -161,6 +161,14 @@ rsconnect::deployApp(
 
 ### Common Issues
 
+**"Unable to locate manifest.json" error:**
+- This error occurs when rsconnect can't automatically generate the deployment manifest
+- Solution 1: Ensure you're running `rsconnect::deployApp()` from the directory containing `app.R`
+- Solution 2: Use the updated `deploy.R` script which explicitly sets the app directory
+- Solution 3: Specify the appDir parameter: `rsconnect::deployApp(appDir = ".")`
+- Solution 4: Make sure the DESCRIPTION file is present in your app directory
+- Solution 5: Try force update: `rsconnect::deployApp(forceUpdate = TRUE)`
+
 **"Account not configured" error:**
 - Make sure you've run `rsconnect::setAccountInfo()` with your credentials
 - Verify credentials are correct by checking `rsconnect::accounts()`
@@ -168,6 +176,7 @@ rsconnect::deployApp(
 **Deployment fails with package errors:**
 - Ensure all required packages are listed in your app
 - The Shiny package is automatically detected and installed
+- Check package compatibility with the R version on shinyapps.io
 
 **App crashes after deployment:**
 - Check the logs in your shinyapps.io dashboard
@@ -178,6 +187,10 @@ rsconnect::deployApp(
 - Verify all three secrets are correctly set in GitHub
 - Check the Actions log for specific error messages
 - Ensure your shinyapps.io account has available deployment slots
+
+**rsconnect directory issues:**
+- Delete the `rsconnect` folder in your app directory if deployment fails repeatedly
+- The folder will be regenerated automatically on next deployment
 
 ## Resource Limits
 

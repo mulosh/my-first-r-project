@@ -8,6 +8,13 @@ if (!require("rsconnect")) {
   library(rsconnect)
 }
 
+# Check if shiny is installed
+if (!require("shiny")) {
+  message("Installing shiny package...")
+  install.packages("shiny")
+  library(shiny)
+}
+
 # Function to deploy the application
 deploy_app <- function() {
   # Check if account is configured
@@ -28,12 +35,22 @@ deploy_app <- function() {
   
   message("Deploying application to shinyapps.io...")
   message("Account: ", accounts$name[1])
+  message("Working directory: ", getwd())
+  
+  # Ensure we're in the correct directory (where app.R is located)
+  if (!file.exists("app.R")) {
+    stop("Error: app.R not found in current directory. Please run this script from the app directory.")
+  }
   
   # Deploy the application
+  # The appDir parameter ensures we deploy from the current directory
   rsconnect::deployApp(
+    appDir = ".",
     appName = "my-first-r-project",
     appTitle = "My First Shiny Application",
-    launch.browser = TRUE
+    appFiles = c("app.R", "DESCRIPTION"),
+    launch.browser = TRUE,
+    forceUpdate = TRUE
   )
   
   message("Deployment complete!")

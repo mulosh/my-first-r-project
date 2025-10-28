@@ -110,3 +110,10 @@ For self-hosting, install [Shiny Server](https://posit.co/products/open-source/s
 #### RStudio Connect / Posit Connect
 
 For enterprise deployment, use [RStudio Connect](https://posit.co/products/enterprise/connect/) with the rsconnect package.
+
+### Troubleshooting Deployment
+
+If you encounter the "Unable to locate manifest.json" error:
+1. Ensure you're running the deployment from the app directory
+2. Use the provided `deploy.R` script which handles directory setup
+3. See `DEPLOYMENT.md` for detailed troubleshooting steps
