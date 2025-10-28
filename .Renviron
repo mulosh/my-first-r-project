@@ -1,0 +1,13 @@
+# .Renviron (put in your project root for local use or in your home ~ for user-wide; do NOT commit secrets to git)
+# Replace the placeholder values with your real tokens/secrets, or leave blank and rely on CI/OS environment variables.
+
+# shinyapps.io
+SHINYAPPS_NAME=your_shinyapps_username
+SHINYAPPS_TOKEN=YOUR_SHINYAPPS_TOKEN
+SHINYAPPS_SECRET=YOUR_SHINYAPPS_SECRET
+
+# Posit Connect (if you use it)
+CONNECT_ACCOUNT=your_connect_account_name
+CONNECT_SERVER=https://connect.example.com
+CONNECT_TOKEN=YOUR_CONNECT_TOKEN
+CONNECT_SECRET=YOUR_CONNECT_SECRET
