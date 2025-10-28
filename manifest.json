@@ -1,1 +1,16 @@
-{\n  "title": "my-first-r-project",\n  "sdk": "r",\n  "description": "R dependencies required to run the Shiny app",\n  "r_version": "4.2.2",\n  "packages": {\n    "cran": [\n      {\n        "name": "shiny",\n        "version": ""\n      },\n      {\n        "name": "rsconnect",\n        "version": ""\n      }\n    ]\n  }\n}
+{
+  "title": "my-first-r-project",
+  "sdk": "r",
+  "description": "R dependencies required to run the Shiny app",
+  "r_version": "4.2.2",
+  "packages": {
+    "cran": [
+      {
+        "name": "shiny",
+        "version": ""
+      }
+    ],
+    "bioc": [],
+    "github": []
+  }
+}
