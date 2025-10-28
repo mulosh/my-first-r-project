@@ -1,6 +1,6 @@
 # rsconnect-config.R
 # Usage:
-# 1) Populate environment variables (e.g., via .Renviron locally or CI secrets).
+# 1) Populate environment variables (e.g., via ~/.Renviron locally or CI secrets).
 # 2) Restart R so that environment variables are available.
 # 3) source("rsconnect-config.R") or call functions below from scripts/CI.
 
