@@ -53,6 +53,34 @@ The application uses the built-in `faithful` dataset in R, which contains inform
 
 ## Deployment
 
+### Quick Start: Deploy to shinyapps.io (5 minutes)
+
+The fastest way to publish your app:
+
+1. **Get your shinyapps.io credentials:**
+   - Sign up at https://www.shinyapps.io/ (free tier available)
+   - Click your name (top right) > Tokens > Show > Show Secret
+   - Copy your account name, token, and secret
+
+2. **Deploy from R/RStudio:**
+   ```r
+   # Install rsconnect if needed
+   install.packages("rsconnect")
+   
+   # Configure your account (one-time setup)
+   rsconnect::setAccountInfo(
+     name = "YOUR_ACCOUNT_NAME",
+     token = "YOUR_TOKEN", 
+     secret = "YOUR_SECRET"
+   )
+   
+   # Deploy the app
+   source("deploy.R")
+   ```
+
+3. **Your app is live!** It will open automatically at:
+   `https://YOUR_ACCOUNT_NAME.shinyapps.io/my-first-r-project/`
+
 ### Deploy to shinyapps.io
 
 The easiest way to deploy this Shiny application is using [shinyapps.io](https://www.shinyapps.io/), which offers a free tier.
@@ -93,6 +121,24 @@ Alternatively, use the included deployment script:
 ```r
 source("deploy.R")
 ```
+
+### Automated Deployment with GitHub Actions
+
+For automatic deployment when code changes are pushed:
+
+1. **Add GitHub Secrets** (in your repository Settings > Secrets and variables > Actions):
+   - `SHINYAPPS_ACCOUNT` - Your shinyapps.io account name
+   - `SHINYAPPS_TOKEN` - Your token from shinyapps.io  
+   - `SHINYAPPS_SECRET` - Your secret from shinyapps.io
+
+2. **When does it deploy automatically?**
+   - When you push changes to `app.R` on the `main` branch
+   - When you manually trigger it from Actions tab
+
+3. **Manual trigger:**
+   - Go to Actions tab > Deploy Shiny App > Run workflow
+
+**Note:** The workflow is configured for the `main` branch. If you're working on a different branch, either merge to main first or update `.github/workflows/deploy.yml` to include your branch.
 
 ### Other Deployment Options
 

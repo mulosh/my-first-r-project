@@ -75,12 +75,20 @@ For automatic deployment when you push changes to GitHub:
    - You push changes to the `main` branch that affect `app.R`
    - You manually trigger the workflow from the Actions tab
 
+**Important:** The workflow is configured for the `main` branch only. If you're working on a feature branch (like `copilot/create-shiny-application`), the workflow will not run automatically. You need to:
+- Merge your PR to main first, OR
+- Update `.github/workflows/deploy.yml` to include your branch in the `branches` list
+
 ### Manual Trigger
 
 1. Go to your repository on GitHub
 2. Click on "Actions" tab
 3. Select "Deploy Shiny App" workflow
 4. Click "Run workflow"
+5. Select the branch you want to deploy from
+6. Click "Run workflow" button
+
+**Note:** Manual triggers work on any branch, but you still need the GitHub secrets configured.
 
 ## Deploy with Docker
 
