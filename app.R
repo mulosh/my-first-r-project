@@ -40,7 +40,7 @@ ui <- fluidPage(
 server <- function(input, output) {
     
     output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
+        # generate bins based on input$bins from the UI
         x    <- faithful[, 2]
         bins <- seq(min(x), max(x), length.out = input$bins + 1)
         
