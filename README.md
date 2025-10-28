@@ -73,8 +73,70 @@ The application will start and open in your default web browser. If it doesn't o
 
 ```
 my-first-r-project/
-├── app.R          # Main Shiny application file
-└── README.md      # This file
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # GitHub Actions deployment workflow
+├── app.R                    # Main Shiny application file
+├── rsconnect-config.R       # Deployment configuration
+├── .Renviron                # Environment variables (placeholders)
+└── README.md                # This file
+```
+
+### Deployment
+
+This application includes automated deployment to shinyapps.io using GitHub Actions.
+
+#### Automated Deployment
+
+The application automatically deploys to shinyapps.io when changes are pushed to the `main` branch, or can be triggered manually via GitHub Actions.
+
+**Setup Requirements:**
+
+1. Create a shinyapps.io account at [shinyapps.io](https://www.shinyapps.io/)
+
+2. Get your shinyapps.io credentials:
+   - Log in to shinyapps.io
+   - Go to Account → Tokens
+   - Click "Show" to reveal your token and secret
+
+3. Add GitHub Secrets to your repository:
+   - Go to your repository on GitHub
+   - Navigate to Settings → Secrets and variables → Actions
+   - Add the following secrets:
+     - `SHINYAPPS_NAME`: Your shinyapps.io account name
+     - `SHINYAPPS_TOKEN`: Your shinyapps.io token
+     - `SHINYAPPS_SECRET`: Your shinyapps.io secret
+
+**Deployment Triggers:**
+
+- **Automatic**: Pushes to the `main` branch
+- **Manual**: Via GitHub Actions workflow dispatch
+
+#### Manual Deployment
+
+To deploy manually using R:
+
+```r
+# Install rsconnect if not already installed
+install.packages("rsconnect")
+
+# Set up your shinyapps.io credentials
+rsconnect::setAccountInfo(
+  name   = "your-account-name",
+  token  = "your-token",
+  secret = "your-secret"
+)
+
+# Deploy the app
+rsconnect::deployApp(appDir = ".", appName = "my-first-r-project")
+```
+
+Or use the helper script:
+
+```r
+# Set environment variables in your ~/.Renviron file
+source("rsconnect-config.R")
+deploy_to_shinyapps()
 ```
 
 ### License
