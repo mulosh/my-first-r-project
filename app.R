@@ -88,8 +88,15 @@ server <- function(input, output, session) {
         req(input$variable)  # Require that variable is selected
         
         x <- selectedData()
-        bins <- seq(min(x, na.rm = TRUE), max(x, na.rm = TRUE), 
-                    length.out = input$bins + 1)
+        min_val <- min(x, na.rm = TRUE)
+        max_val <- max(x, na.rm = TRUE)
+        
+        # Handle edge case where all values are identical
+        if (min_val == max_val) {
+            bins <- seq(min_val - 0.5, max_val + 0.5, length.out = input$bins + 1)
+        } else {
+            bins <- seq(min_val, max_val, length.out = input$bins + 1)
+        }
         
         hist(x, breaks = bins, col = input$color, border = "white",
              xlab = input$variable,

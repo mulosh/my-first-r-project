@@ -29,12 +29,19 @@ This project contains an interactive Shiny web application for exploring and vis
 1. Install R from [CRAN](https://cran.r-project.org/)
 
 2. Install the Shiny package:
+   
+   **Option 1 - From R console (recommended):**
    ```r
    install.packages("shiny")
    ```
 
-   Or on Ubuntu/Debian:
+   **Option 2 - On Ubuntu/Debian systems:**
    ```bash
+   # Install R if not already installed
+   sudo apt-get update
+   sudo apt-get install r-base
+   
+   # Install Shiny from repository (Ubuntu 20.04+)
    sudo apt-get install r-cran-shiny
    ```
 
