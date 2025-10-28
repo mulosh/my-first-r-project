@@ -1,0 +1,12 @@
+{
+  "title": "my-first-r-project",
+  "sdk": "r",
+  "description": "R dependencies required to run the Shiny app",
+  "r_version": "4.2.2",
+  "packages": {
+    "cran": [
+      "shiny",
+      "rsconnect"
+    ]
+  }
+}
