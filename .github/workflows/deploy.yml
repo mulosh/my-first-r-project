@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - copilot/create-shiny-application
     paths:
       - 'app.R'
       - '.github/workflows/deploy.yml'
