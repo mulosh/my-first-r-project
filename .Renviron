@@ -1,0 +1,15 @@
+# .Renviron (kept in repo only with empty placeholders — do NOT commit live secrets)
+# Set real tokens either in your user ~/.Renviron (not committed) or in CI/GitHub Secrets.
+
+# shinyapps.io
+SHINYAPPS_NAME=
+SHINYAPPS_TOKEN=
+SHINYAPPS_SECRET=
+
+# Posit Connect (if you use it)
+CONNECT_ACCOUNT=
+CONNECT_SERVER=
+CONNECT_TOKEN=
+CONNECT_SECRET=
+
+# If sensitive tokens were previously committed, rotate them in the service (shinyapps.io / Connect) and remove them from git history.
