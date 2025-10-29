@@ -1,0 +1,26 @@
+# R / RStudio
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+
+# renv local library
+renv/library/
+renv/python/
+
+# IDEs and OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Data - do not commit raw data by default
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Build / docs
+docs/
+*.log
+*.cache
