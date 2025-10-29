@@ -7,7 +7,7 @@
     "cran": [
       {
         "name": "shiny",
-        "version": ""
+        "version": "latest"
       }
     ],
     "bioc": [],
