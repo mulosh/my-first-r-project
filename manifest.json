@@ -1,20 +1,27 @@
 {
-  "version": 1,
-  "platform": "R 4.2.2",
-  "locale": "en_US",
-  "metadata": {
-    "appmode": "shiny",
-    "primary_doc": "app.R",
-    "content_category": "shiny"
-  },
+  "appName": "my-first-r-project",
+  "title": "Interactive Data Explorer",
+  "description": "Shiny app exploring built-in R datasets (mtcars, iris, faithful).",
+  "framework": "shiny",
+  "appMode": "shiny",
+  "entrypoint": "app.R",
+  "rVersion": "4.2.2",
   "packages": {
-    "cran": [
-      {
-        "name": "shiny",
-        "version": "1.7.4",
-        "source": "CRAN"
-      }
-    ]
+    "shiny": "1.7.4",
+    "rsconnect": "0.8.29"
   },
-  "files": ["app.R", "ui.R", "server.R"]
+  "content": [
+    {
+      "name": "app.R",
+      "type": "file"
+    },
+    {
+      "name": "rsconnect-config.R",
+      "type": "file"
+    }
+  ],
+  "deploy": {
+    "target": "shinyapps.io"
+  },
+  "version": "1.0.0"
 }
