@@ -1,82 +1,34 @@
-# my-first-r-project
-"My first R project on GitHub"
+```markdown
+# Shiny App — Starter for my-first-r-project
 
-## Shiny Application: Interactive Data Explorer
+This repository contains a minimal Shiny app starter.
 
-This project contains an interactive Shiny web application for exploring and visualizing data.
+Quick start (local)
+1. Open this repo in RStudio and create/open the `.Rproj` file (or just open the folder).
+2. Install renv (if not installed) and restore the project library:
+   - install.packages("renv")
+   - renv::restore()  # restores packages from renv.lock if present
+3. Run the app:
+   - In RStudio: click Run App or
+   - In the shell: Rscript -e "shiny::runApp('.', port = 8000, host = '0.0.0.0')"
 
-### Features
+What’s included
+- `app.R` — the Shiny app (UI + server). Upload your data, explore and plot a numeric column.
+- `R/helpers.R` — small helper functions used by the app.
+- `data/raw/` and `data/processed/` — folders for raw and processed data (placeholders).
+- `Dockerfile` — build a container image that serves the app via shiny-server.
+- `.github/workflows/shiny-ci.yml` — CI workflow to restore renv and run basic checks/linting.
 
-- **Interactive Data Exploration**: Explore built-in R datasets (mtcars, iris, faithful)
-- **Dynamic Visualizations**: Generate histograms with customizable parameters
-- **Multiple Views**: 
-  - Plot view with interactive histogram
-  - Summary statistics view
-  - Data table view
-- **Customization Options**:
-  - Select different datasets
-  - Choose numeric variables to visualize
-  - Adjust number of bins
-  - Change color themes
+Deploy options
+- shinyapps.io: use rsconnect::deployApp() (add rsconnect configuration for your account).
+- Docker: build and run the included Dockerfile to host on any container runtime.
+- Shiny Server / RStudio Connect: copy the app directory to the server and configure.
 
-### Prerequisites
+Notes and best practices
+- Don't commit large or sensitive raw data. Keep raw data out of git; use data/raw/.gitkeep and add instructions for how to obtain data.
+- Use renv::snapshot() after installing/updating packages to update renv.lock so collaborators/CI can reproduce the environment.
+- Add tests with shinytest2 for interactive testing if you need automated UI tests.
 
-- R (version 4.0 or higher)
-- Shiny package
-
-### Installation
-
-1. Install R from [CRAN](https://cran.r-project.org/)
-
-2. Install the Shiny package:
-   
-   **Option 1 - From R console (recommended):**
-   ```r
-   install.packages("shiny")
-   ```
-
-   **Option 2 - On Ubuntu/Debian systems:**
-   ```bash
-   # Install R if not already installed
-   sudo apt-get update
-   sudo apt-get install r-base
-   
-   # Install Shiny from repository (Ubuntu 20.04+)
-   sudo apt-get install r-cran-shiny
-   ```
-
-### Running the Application
-
-To run the Shiny application:
-
-```r
-# In R console
-shiny::runApp("app.R")
+License
+- Add a LICENSE file appropriate for your project.
 ```
-
-Or from the command line:
-```bash
-R -e "shiny::runApp('app.R')"
-```
-
-The application will start and open in your default web browser. If it doesn't open automatically, navigate to the URL shown in the console (typically `http://127.0.0.1:XXXX`).
-
-### Usage
-
-1. **Select a Dataset**: Choose from mtcars, iris, or faithful datasets
-2. **Choose a Variable**: Pick a numeric variable to visualize
-3. **Adjust Bins**: Use the slider to change the number of histogram bins
-4. **Select Color**: Choose your preferred color scheme
-5. **Explore Tabs**: Switch between Plot, Summary, and Data Table views
-
-### Project Structure
-
-```
-my-first-r-project/
-├── app.R          # Main Shiny application file
-└── README.md      # This file
-```
-
-### License
-
-This project is open source and available for educational purposes.
