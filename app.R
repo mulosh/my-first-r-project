@@ -2,6 +2,10 @@
 # This is a simple Shiny web application demonstrating interactive data visualization
 
 library(shiny)
+library(rsconnect)
+
+# Generate deployment manifest for rsconnect
+writeManifest(appDir = ".", appPrimaryDoc = "app.R", appMode = "shiny")
 
 # Define UI for the application
 ui <- fluidPage(
