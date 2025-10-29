@@ -1,16 +1,20 @@
 {
-  "title": "my-first-r-project",
-  "sdk": "r",
-  "description": "R dependencies required to run the Shiny app",
-  "r_version": "4.2.2",
+  "version": 1,
+  "platform": "R 4.2.2",
+  "locale": "en_US",
+  "metadata": {
+    "appmode": "shiny",
+    "primary_doc": "app.R",
+    "content_category": "shiny"
+  },
   "packages": {
     "cran": [
       {
         "name": "shiny",
-        "version": "latest"
+        "version": "1.7.4",
+        "source": "CRAN"
       }
-    ],
-    "bioc": [],
-    "github": []
-  }
+    ]
+  },
+  "files": ["app.R", "ui.R", "server.R"]
 }
